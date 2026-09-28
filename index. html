@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Muhammad Zaki Pahlevi! 🎉</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Library Konfeti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  
+  <style>
+    :root {
+      --bg-color: #0b0f19;
+      --card-bg: #161f30;
+      --accent-blue: #00d2ff;
+      --deep-blue: #0052d4;
+      --text-color: #e2e8f0;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 10px;
+    }
+
+    .container {
+      max-width: 600px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 25px;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 26px;
+      color: var(--accent-blue);
+      margin-bottom: 8px;
+    }
+
+    h2 {
+      font-size: 20px;
+      color: var(--accent-blue);
+      margin-bottom: 15px;
+      border-bottom: 2px solid var(--deep-blue);
+      padding-bottom: 8px;
+      display: inline-block;
+    }
+
+    p {
+      color: var(--text-color);
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    /* Music Player */
+    .music-player {
+      background: linear-gradient(135deg, var(--deep-blue), #4364f7);
+      padding: 15px;
+      border-radius: 12px;
+      margin-top: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .music-btn {
+      background: #ffffff;
+      color: #000;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .music-btn:hover {
+      transform: scale(1.05);
+    }
+
+    /* Kalender Oktober */
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 6px;
+      margin-top: 15px;
+    }
+
+    .cal-day-header {
+      font-weight: 600;
+      color: var(--accent-blue);
+      font-size: 13px;
+    }
+
+    .cal-date {
+      padding: 8px 0;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.03);
+      font-size: 14px;
+    }
+
+    .cal-date.special {
+      background: linear-gradient(135deg, var(--accent-blue), var(--deep-blue));
+      color: #fff;
+      font-weight: bold;
+      animation: pulse 1.5s infinite alternate;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(0, 210, 255, 0.4); }
+      100% { transform: scale(1.1); box-shadow: 0 0 10px 5px rgba(0, 210, 255, 0.7); }
+    }
+
+    /* Galeri Foto */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 12px;
+      margin-top: 15px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 130px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 2px solid rgba(0, 210, 255, 0.2);
+      transition: transform 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+      border-color: var(--accent-blue);
+    }
+
+    /* Ucapan */
+    .wishes-box {
+      font-style: italic;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 15px;
+      border-left: 4px solid var(--accent-blue);
+      border-radius: 6px;
+      margin-top: 10px;
+      text-align: left;
+    }
+
+    /* Kuis */
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .quiz-btn {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-color);
+      border: 1px solid var(--deep-blue);
+      padding: 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      text-align: left;
+      transition: 0.3s;
+    }
+
+    .quiz-btn:hover {
+      background: var(--deep-blue);
+    }
+
+    .quiz-result {
+      margin-top: 15px;
+      font-weight: 600;
+    }
+
+    footer {
+      margin-top: 20px;
+      color: var(--text-muted);
+      font-size: 12px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Header & Musik -->
+    <div class="card">
+      <h1>Happy Birthday! 🎂</h1>
+      <h3 style="color: #ffffff; margin-bottom: 15px;">Muhammad Zaki Pahlevi</h3>
+      <p>Semoga hari spesialmu di penuhi kebahagiaan & keberkahan.</p>
+      
+      <div class="music-player">
+        <p style="font-size: 13px; color: #fff;">🎵 Playing: <b>The Shape of My Heart</b></p>
+        <button class="music-btn" id="playBtn" onclick="toggleAudio()">▶ Putar / Jeda Musik</button>
+      </div>
+      <!-- File musik eksternal -->
+      <audio id="bgMusic" loop preload="auto">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+      </audio>
+    </div>
+
+    <!-- Kalender Ulang Tahun -->
+    <div class="card">
+      <h2>📅 Oktober</h2>
+      <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 10px;">Hari Spesial:</p>
+      <div class="calendar">
+        <div class="cal-day-header">Min</div>
+        <div class="cal-day-header">Sen</div>
+        <div class="cal-day-header">Sel</div>
+        <div class="cal-day-header">Rab</div>
+        <div class="cal-day-header">Kam</div>
+        <div class="cal-day-header">Jum</div>
+        <div class="cal-day-header">Sab</div>
+
+        <!-- Tanggal-tanggal Oktober (Contoh layout kalender) -->
+        <div></div><div></div><div></div><div></div><div class="cal-date">1</div><div class="cal-date">2</div><div class="cal-date">3</div>
+        <div class="cal-date">4</div><div class="cal-date">5</div><div class="cal-date">6</div><div class="cal-date">7</div><div class="cal-date">8</div><div class="cal-date">9</div><div class="cal-date">10</div>
+        <div class="cal-date">11</div><div class="cal-date">12</div>
+        
+        <!-- Tanggal Spesial 13 Oktober -->
+        <div class="cal-date special">13 🎉</div>
+        
+        <div class="cal-date">14</div><div class="cal-date">15</div><div class="cal-date">16</div><div class="cal-date">17</div>
+        <div class="cal-date">18</div><div class="cal-date">19</div><div class="cal-date">20</div><div class="cal-date">21</div><div class="cal-date">22</div><div class="cal-date">23</div><div class="cal-date">24</div>
+        <div class="cal-date">25</div><div class="cal-date">26</div><div class="cal-date">27</div><div class="cal-date">28</div><div class="cal-date">29</div><div class="cal-date">30</div><div class="cal-date">31</div>
+      </div>
+    </div>
+
+    <!-- Kata Ucapan -->
+    <div class="card">
+      <h2>💌 Ucapan & Doa</h2>
+      <div class="wishes-box">
+        <p>"Selamat ulang tahun untuk Muhammad Zaki Pahlevi!</p>
+        <br>
+        <p>Semoga di usiamu yang baru ini, kamu makin sukses, sehat selalu, diberikan kemudahan dalam segala urusan, dan semua impianmu bisa tercapai satu per satu. Tetap jadi pribadi yang baik dan menginspirasi banyak orang. Enjoy your special day!" ✨✨</p>
+      </div>
+    </div>
+
+    <!-- Galeri Foto -->
+    <div class="card">
+      <h2>📸 Galeri Kenangan</h2>
+      <p style="color: var(--text-muted); font-size: 13px;">Kumpulan momen terbaik Zaki:</p>
+      <div class="gallery">
+        <!-- Ganti URL gambar di bawah dengan foto asli Zaki -->
+        <img src="https://picsum.photos/300/300?random=1" alt="Foto Zaki 1">
+        <img src="https://picsum.photos/300/300?random=2" alt="Foto Zaki 2">
+        <img src="https://picsum.photos/300/300?random=3" alt="Foto Zaki 3">
+        <img src="https://picsum.photos/300/300?random=4" alt="Foto Zaki 4">
+      </div>
+    </div>
+
+    <!-- Kuis Singkat -->
+    <div class="card">
+      <h2>🎮 Kuis Singkat tentang Zaki</h2>
+      <p>Apa hal paling luar biasa tentang Muhammad Zaki Pahlevi?</p>
+      
+      <div class="quiz-options">
+        <button class="quiz-btn" onclick="checkAnswer('A')">A. Selalu ceria dan bikin orang tersenyum</button>
+        <button class="quiz-btn" onclick="checkAnswer('B')">B. Setia kawan dan selalu siap bantu</button>
+        <button class="quiz-btn" onclick="checkAnswer('C')">C. Semua jawaban di atas benar (100% Paling Bener!)</button>
+      </div>
+
+      <div id="quizResult" class="quiz-result"></div>
+    </div>
+
+  </div>
+
+  <footer>
+    Made with ❤️ for Muhammad Zaki Pahlevi
+  </footer>
+
+  <script>
+    const audio = document.getElementById('bgMusic');
+
+    // Coba autostart musik saat interaksi pertama
+    window.addEventListener('click', function() {
+      if (audio.paused) {
+        audio.play().catch(e => console.log("Autoplay blocked:", e));
+      }
+    }, { once: true });
+
+    function toggleAudio() {
+      if (audio.paused) {
+        audio.play();
+      } else {
+        audio.pause();
+      }
+    }
+
+    // Fungsi Kuis & Konfeti
+    function checkAnswer(option) {
+      const resultDiv = document.getElementById('quizResult');
+      
+      if (option === 'C') {
+        resultDiv.innerHTML = "<span style='color: #00d2ff;'>Tepat sekali! 🎉 Zaki memang luar biasa!</span>";
+        // Efek konfeti meriah
+        confetti({
+          particleCount: 150,
+          spread: 80,
+          origin: { y: 0.6 }
+        });
+      } else {
+        resultDiv.innerHTML = "<span style='color: #ff4757;'>Bisa jadi, tapi ada jawaban yang lebih pas! Coba lagi 😉</span>";
+      }
+    }
+  </script>
+
+</body>
+</html>
